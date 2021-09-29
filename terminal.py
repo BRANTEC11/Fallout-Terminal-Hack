@@ -1,6 +1,6 @@
 import random
 def divider(y):
-    with open('words_alpha.txt','r') as f:
+    with open('wordbank.txt','r') as f:
             listl=[]
             for line in f:
                     strip_lines=line.strip()
