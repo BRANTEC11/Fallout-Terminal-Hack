@@ -1,11 +1,11 @@
 import random
+#TODO: Add support for capitol and lowercase letters.
 def divider(y):
     with open('wordbank.txt','r') as f:
             listl=[]
             for line in f:
                     strip_lines=line.strip()
                     listli=strip_lines.split()
-                    
                     m=listl.append(listli)
     z = listl
     x = []
@@ -23,10 +23,9 @@ def divider(y):
         if len(x[i]) == y:
             only.append(x[i])
         i = i + 1
-    
     return only
+
 def terminal():
-    
     diffCheck = 0
     difficulty = 0
     while diffCheck != 1:
@@ -63,8 +62,7 @@ def terminal():
     numbah = 0
     printed = 0
     intCheck = 0
-    randomStuff = ['!','@','#','$','%','^','&','*','(',')',
-                   '[',']','{','}','/','<','>','?']
+    randomStuff = ['!','@','#','$','%','^','&','*','(',')','[',']','{','}','/','<','>','?']
     while printed != 14:
         x = random.randint(1,150)
         if count == 100:
@@ -79,10 +77,8 @@ def terminal():
             count = count + 2
             intCheck = 1
         elif x == 11 or x == 10 and intCheck != 2:
-            #and (120 - count) >= difficulty
             j = 0
             rando = random.randint(1,120)
-            
             print(chosenList[printed], end = '')
             while j < rando:
                 print(randomStuff[random.randint(0,len(randomStuff)-1)], end = '')
@@ -98,7 +94,6 @@ def terminal():
     bashTest = 'brecksit'        
     chances = 5   
     while chances != -1:
-        
         if chances == 0:
             print("TERMINAL LOCKED\nPLEASE CONTACT AN ADMINISTRATOR")
 
@@ -111,11 +106,9 @@ def terminal():
         elif response1 == str(numbah) and hashTest == 1:
             print("HASH ALREADY RECORDED")
         elif response1 == str(numbah) and hashTest != 1:
-
             print("HASH ACCEPTED, ATTEMPTS RESTORED")
             chances = 5
             hashTest = 1
-        
         elif response1 == answer:
             print("ACCESS GRANTED")
             break
@@ -132,17 +125,13 @@ def terminal():
             endCheck = 1
         elif response == 'r':
             terminal()
-            
-            
+                 
 def stringComp(x,y):
-    
     count = 0
     for a, b in zip(x, y):
         if a == b:
             count = count + 1
     return count
             
-
-    
 if __name__ == '__main__':
   terminal()
