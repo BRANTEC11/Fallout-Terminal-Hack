@@ -1,7 +1,11 @@
 import random
 #TODO: Add support for capitol and lowercase letters.
 def divider(y):
-    with open('wordbank.txt','r') as f:
+    from os.path import dirname, join
+    current_dir = dirname(__file__)
+    file_path = join(current_dir, 'wordbank.txt')
+    with open(file_path,'r') as f:
+    
             listl=[]
             for line in f:
                     strip_lines=line.strip()
@@ -30,19 +34,20 @@ def terminal():
     difficulty = 0
     while diffCheck != 1:
         response = input('Please select your difficulty: \nEasy\nMedium\nHard\nVery Hard\n').strip()
-        if response=='Easy':
+        response = response.upper()
+        if response=='EASY':
             difficulty = random.randint(5,6)
             diffCheck = 1
-        elif response=='Medium':
+        elif response=='MEDIUM':
             difficulty = random.randint(7,8)
             diffCheck = 1
-        elif response=='Hard':
+        elif response=='HARD':
             difficulty = random.randint(9,10)
             diffCheck = 1
-        elif response=='Very Hard':
+        elif response=='VERY HARD':
             difficulty = random.randint(11,13)
             diffCheck = 1
-        elif response=='L o r g e':
+        elif response=='L O R G E':
             difficulty = 14
             diffCheck = 1
     #Getting the 15 numbers and the 1 answer from those 15
@@ -109,12 +114,12 @@ def terminal():
             print("HASH ACCEPTED, ATTEMPTS RESTORED")
             chances = 5
             hashTest = 1
-        elif response1 == answer:
+        elif response1.upper() == answer:
             print("ACCESS GRANTED")
             break
         else:
             print("ERROR: INVALID PASSWORD ")
-            print(str(stringComp(response1,answer)) + "/" + str(difficulty) + " CORRECT")
+            print(str(stringComp(response1.upper(),answer)) + "/" + str(difficulty) + " CORRECT")
             chances = chances - 1
     endCheck = 0
     while endCheck != 1:
